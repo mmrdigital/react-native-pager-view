@@ -30,13 +30,39 @@ using namespace facebook::react;
   if (self = [super initWithFrame:frame]) {
     static const auto defaultProps = std::make_shared<const RNCViewPagerProps>();
     _props = defaultProps;
-      _childrenViewControllers = [[NSMutableArray alloc] init];
-      _scrollEnabled = YES;
-      _pageMargin = 0;
-      _currentIndex = 0;
+    _childrenViewControllers = [[NSMutableArray alloc] init];
+    _scrollEnabled = YES;
+    _pageMargin = 0;
+    _currentIndex = 0;
   }
   return self;
 }
+
+- (void)mountChildComponentView:(UIView<RCTComponentViewProtocol> *)childComponentView index:(NSInteger)index {
+    [super mountChildComponentView:childComponentView index:index];
+    NSLog(@"mountChildComponentView %ld", (long)index);
+}
+
+- (void)unmountChildComponentView:(UIView<RCTComponentViewProtocol> *)childComponentView index:(NSInteger)index {
+    [super unmountChildComponentView:childComponentView index:index];
+    NSLog(@"unmountChildComponentView");
+}
+
+- (void)updateProps:(const facebook::react::Props::Shared &)props oldProps:(const facebook::react::Props::Shared &)oldProps{
+    [super updateProps:props oldProps:oldProps];
+    const auto &oldViewProps = *std::static_pointer_cast<RNCViewPagerProps const>(_props);
+    const auto &newViewProps = *std::static_pointer_cast<RNCViewPagerProps const>(props);
+    printf("%s", props->getDebugDescription().c_str());
+//    NSLog(@"updateProps %@", props->getDebugDescription());
+    NSLog(@"");
+}
+
+- (void)updateState:(facebook::react::State::Shared const &)state
+           oldState:(facebook::react::State::Shared const &)oldState {
+    [super updateState: state oldState:oldState];
+    NSLog(@"updateState");
+}
+
 
 - (void)layoutSubviews {
     [super layoutSubviews];
