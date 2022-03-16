@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Platform, Keyboard } from 'react-native';
+import { Platform, Keyboard, Alert } from 'react-native';
 import { I18nManager } from 'react-native';
 import type {
   PagerViewOnPageScrollEvent,
@@ -56,6 +56,9 @@ import NativePagerView from './spec/NativePagerView';
 export class PagerView extends React.Component<PagerViewProps> {
   private isScrolling = false;
   private PagerView = React.createRef<typeof NativePagerView>();
+  state = {
+    total: 0,
+  };
 
   public getInnerViewNode = (): ReactElement => {
     //@ts-ignore
@@ -87,6 +90,11 @@ export class PagerView extends React.Component<PagerViewProps> {
     if (this.props.onPageSelected) {
       this.props.onPageSelected(e);
     }
+  };
+
+  public setTotal = (_: number) => {
+    this.setState({ total: this.state.total + 1 });
+    Alert.alert('Set', `${this.state.total + 1}`);
   };
 
   /**
@@ -147,6 +155,8 @@ export class PagerView extends React.Component<PagerViewProps> {
         {...this.props}
         ref={this.PagerView as any /** TODO: Fix ref type */}
         style={this.props.style}
+        // pageIndex={this.props.pageIndex}
+        // total={this.state.total}
         layoutDirection={this.deducedLayoutDirection}
         onPageScroll={this._onPageScroll}
         onPageScrollStateChanged={this._onPageScrollStateChanged}
