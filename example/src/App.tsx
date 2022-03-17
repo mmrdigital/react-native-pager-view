@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { StyleSheet, View, SafeAreaView, Image } from 'react-native';
 
 import PagerView from 'react-native-pager-view';

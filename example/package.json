@@ -16,18 +16,16 @@
     "detox:android:test:debug": "detox test -c android.emu.debug",
     "js2schema": "node node_modules/react-native-codegen/lib/cli/combine/combine-js-to-schema-cli.js schema.json ../src",
     "generateSpec": "node node_modules/react-native/scripts/generate-specs-cli.js --platform ios --schemaPath schema.json --outputDir ./codegenFiles --libraryName PagerView --libraryType components",
-    "checkGeneratedFiles":"ls ios/build/generated/ios/react/renderer/PagerView"
+    "checkGeneratedFiles": "ls ios/build/generated/ios/react/renderer/PagerView"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
-    "@react-navigation/native": "^5.8.10",
-    "@react-navigation/stack": "^5.12.8",
     "react": "17.0.2",
     "react-native": "0.0.0-20220213-2008-7cece3423",
     "react-native-animated-pagination-dots": "^0.1.51",
     "react-native-gesture-handler": "^1.9.0",
+    "react-native-gradle-plugin": "^0.0.5",
     "react-native-pager-view": "link:../",
-    "react-native-reanimated": "^1.13.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-screens": "^2.16.1",
     "react-native-tab-view": "^3.1.1"
