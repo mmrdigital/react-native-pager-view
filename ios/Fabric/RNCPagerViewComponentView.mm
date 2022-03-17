@@ -124,6 +124,9 @@ using namespace facebook::react;
     [super updateProps:props oldProps:oldProps];
 }
 
+- (void)handleCommand:(const NSString *)commandName args:(const NSArray *)args {
+    NSLog(@"");
+}
 - (UIViewController *)nextControllerForController:(UIViewController *)controller
                                       inDirection:(UIPageViewControllerNavigationDirection)direction {
     NSUInteger numberOfPages = _nativeChildrenViewControllers.count;

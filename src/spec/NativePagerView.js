@@ -9,7 +9,7 @@ import type {
 } from 'react-native/Libraries/Types/CodegenTypes';
 import type { ViewProps } from 'react-native/Libraries/Components/View/ViewPropTypes';
 
-//TODO implement all types here
+// //TODO implement all types here
 type NativeProps = $ReadOnly<{|
   ...ViewProps,
   initialPage?: WithDefault<Int32, 0>,
@@ -23,3 +23,31 @@ type NativeProps = $ReadOnly<{|
 export default (codegenNativeComponent<NativeProps>(
   'RNCViewPager'
 ): HostComponent<NativeProps>);
+
+// import codegenNativeCommands from 'react-native/Libraries/Utilities/codegenNativeCommands';
+// import * as React from 'react';
+// import type { Int32 } from 'react-native/Libraries/Types/CodegenTypes';
+
+// import type { HostComponent } from 'react-native/Libraries/Renderer/shims/ReactNativeTypes';
+// import requireNativeComponent from 'react-native/Libraries/ReactNative/requireNativeComponent';
+
+// const MyCustomMapNativeComponent: HostComponent<NativeProps> = requireNativeComponent<NativeProps>(
+//   'RNCViewPager'
+// );
+
+// interface NativeCommands {
+//   +setPage: (
+//     viewRef: React.ElementRef<typeof MyCustomMapNativeComponent>,
+//     number: Int32
+//   ) => void;
+//   +setPageWithoutAnimation: (
+//     viewRef: React.ElementRef<typeof MyCustomMapNativeComponent>,
+//     number: Int32
+//   ) => void;
+// }
+
+// export default (codegenNativeCommands <
+//   NativeCommands >
+//   {
+//     supportedCommands: ['setPage', 'setPageWithoutAnimation'],
+//   }: NativeCommands);

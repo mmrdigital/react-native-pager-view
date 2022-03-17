@@ -10,6 +10,7 @@ import type {
 
 import { childrenWithOverriddenStyle } from './utils';
 import NativePagerView from './spec/NativePagerView';
+import Commands from './spec/NativePagerViewCommands';
 
 /**
  * Container that allows to flip left and right between child views. Each
@@ -93,24 +94,17 @@ export class PagerView extends React.Component<PagerViewProps> {
    * A helper function to scroll to a specific page in the PagerView.
    * The transition between pages will be animated.
    */
-  public setPage = (_: number) => {
-    // UIManager.dispatchViewManagerCommand(
-    //   ReactNative.findNodeHandle(this),
-    //   getViewManagerConfig().Commands.setPage,
-    //   [selectedPage]
-    // );
+  public setPage = (selectedPage: number) => {
+    // Commands.setPage(this.PagerView, selectedPage);
+    console.log('🚀🚀🚀🚀🚀🚀🚀🚀 ', Commands);
   };
 
   /**
    * A helper function to scroll to a specific page in the PagerView.
    * The transition between pages will *not* be animated.
    */
-  public setPageWithoutAnimation = (_: number) => {
-    // UIManager.dispatchViewManagerCommand(
-    //   ReactNative.findNodeHandle(this),
-    //   getViewManagerConfig().Commands.setPageWithoutAnimation,
-    //   [selectedPage]
-    // );
+  public setPageWithoutAnimation = (selectedPage: number) => {
+    // Commands.setPageWithoutAnimation(this.PagerView, selectedPage);
   };
 
   /**
