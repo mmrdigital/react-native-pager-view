@@ -19,5 +19,5 @@ import type {ViewPagerProps} from './types';
 type ViewPagerNativeType = Class<NativeComponent<ViewPagerProps>>;
 
 module.exports = ((requireNativeComponent(
-  'RNCViewPager',
+  'RNCViewPager3',
 ): any): ViewPagerNativeType);
